@@ -1,0 +1,272 @@
+/* ------------------- Reset & Body ------------------- */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ------------------- Main Background ------------------- */
+.main-bg {
+   /* background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover; */
+  background-attachment: fixed; /* makes background static */
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+   background: url("{% static 'bookings/hotel_bg.jpg' %}") no-repeat center center;
+    background-size: cover;
+    min-height: calc(100vh - 120px);
+}
+
+form {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.6); /* darker for better contrast */
+  padding: 30px 20px;
+  border-radius: 15px;
+  color: #fff;
+  z-index: 2; /* ensures it appears above the background */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* subtle shadow for better visibility */
+}
+/* ------------------- Navigation ------------------- */
+nav {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------- Forms ------------------- */
+form {
+  width: 100%;
+}
+
+.form-container {
+  max-width: 600px;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+  color: #ffc107;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+}
+
+.button-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.button-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* ------------------- Table Styling ------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #343a40;
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+/* ------------------- Alerts ------------------- */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.alert-success { background-color: #d4edda; color: #155724; }
+.alert-error { background-color: #f8d7da; color: #721c24; }
+.alert-info { background-color: #cce5ff; color: #004085; }
+.alert-warning { background-color: #fff3cd; color: #856404; }
+
+/* ------------------- Footer ------------------- */
+.footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.footer .social-icons a:hover {
+  color: #ffc107;
+}
+
+/* ------------------- Headings & Text ------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
+
+p, li, a, span {
+  color: #ddd;
+}
+
+/* ------------------- Input Fields ------------------- */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ------------------- Modal ------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #100e0e;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: black;
+  cursor: pointer;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin-bottom: 10px;
+  }
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.btn-warning {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
