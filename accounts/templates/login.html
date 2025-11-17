@@ -1,0 +1,103 @@
+{% extends 'bookings/base.html' %}
+{% block content %}
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f0f0;
+  }
+
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .login-form-container {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .login-form-container h2 {
+    font-size: 2.5rem;
+    color: #2575fc;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .login-form-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .login-form-container input:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 10px rgba(37,117,252,0.3);
+  }
+
+  .btn-login {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-login:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+  }
+
+  .signup-link {
+    margin-top: 15px;
+  }
+
+  .signup-link a {
+    color: #6a11cb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .signup-link a:hover {
+    color: #2575fc;
+  }
+</style>
+
+<div class="login-page">
+  <div class="login-form-container">
+    <form method="post" class="login-form">
+      {% csrf_token %}
+      <h2>Login</h2>
+      {% for field in form %}
+        <div>
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.errors %}
+            <div class="text-danger">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn-login">Login</button>
+      <p class="signup-link">Don’t have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+    </form>
+  </div>
+</div>
+{% endblock %}
