@@ -1,0 +1,91 @@
+{% extends "bookings/base.html" %}
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #f8f9fa;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+  }
+
+  .confirm-container {
+    max-width: 650px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+  }
+
+  h2 {
+    text-align: center;
+    color: #ffd369;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #eaeaea;
+  }
+
+  strong {
+    color: #ffb142;
+  }
+
+  .highlight {
+    color: #1dd1a1;
+    font-weight: bold;
+  }
+
+  a {
+    color: #00cec9;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: #81ecec;
+    text-decoration: underline;
+  }
+
+  .btn-back {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding: 12px;
+    background: linear-gradient(90deg, #00b894, #0984e3);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .btn-back:hover {
+    background: linear-gradient(90deg, #0984e3, #00cec9);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="confirm-container">
+  <h2>✅ Booking Confirmed</h2>
+  <p><strong>Booking ID:</strong> {{ booking.pk }}</p>
+  <p><strong>Guest:</strong> {{ booking.guest }}</p>
+  <p><strong>Room:</strong> {{ booking.room }}</p>
+  <p><strong>Check-in:</strong> <span class="highlight">{{ booking.check_in }}</span></p>
+  <p><strong>Check-out:</strong> <span class="highlight">{{ booking.check_out }}</span></p>
+  <p><strong>Total Nights:</strong> {{ booking.nights }}</p>
+  <p><strong>Total Price:</strong> <span class="highlight">₹{{ total }}</span></p>
+
+  {% if booking.special_request %}
+    <p><strong>Special Request:</strong> {{ booking.special_request }}</p>
+  {% endif %}
+
+  <a href="{% url 'room_list' %}" class="btn-back">Back to Rooms</a>
+</div>
+{% endblock %}
